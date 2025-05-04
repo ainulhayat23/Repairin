@@ -98,3 +98,41 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 | Melapor kerusakan (formulir)    | Mengisi laporan kerusakan barang elektronik                   |
 | Pilih antar barang / panggil teknisi | Menentukan metode layanan: antar ke tempat / teknisi ke rumah |
 | Lihat status perbaikan          | Melihat progres laporan: diajukan, diproses, selesai          |
+
+<h3>Tabel-tabel database beserta field dan tipe datanya</h3>
+
+<p>1. Tabel users</p>
+| Kolom        | Tipe      | Keterangan                      |
+|--------------|-----------|----------------------------------|
+| `id`         | bigint    | Primary key                     |
+| `name`       | string    | Nama pengguna                   |
+| `email`      | string    | Email pengguna (unik)           |
+| `password`   | string    | Password terenkripsi            |
+| `role`       | enum      | `admin`, `teknisi`, `pelanggan` |
+| `created_at` | timestamp | Waktu dibuat                    |
+| `updated_at` | timestamp | Waktu diubah                    |
+
+<p>2. Tabel perbaikans</p>
+| Kolom                | Tipe      | Keterangan                                      |
+|----------------------|-----------|--------------------------------------------------|
+| `id`                 | bigint    | Primary key                                     |
+| `user_id`            | foreign   | ID pelanggan yang melapor                       |
+| `teknisi_id`         | foreign   | ID teknisi yang menangani (nullable di awal)    |
+| `nama_barang`        | string    | Nama barang elektronik                          |
+| `kerusakan`          | text      | Deskripsi kerusakan                             |
+| `tipe_layanan`       | enum      | `antar_lokasi` atau `panggil_teknisi`           |
+| `alamat_penjemputan` | string    | Alamat jika pilih "panggil teknisi" (nullable)  |
+| `biaya`              | integer   | Biaya perbaikan dari teknisi (nullable dulu)    |
+| `status`             | enum      | `diajukan`, `diproses`, `selesai`, `dibatalkan` |
+| `status_pembayaran`  | enum      | `belum_dibayar`, `sudah_dibayar`                |
+| `created_at`         | timestamp |                                                 |
+| `updated_at`         | timestamp |                                                 |
+
+<p>3. Tabel log_perbaikans</p>
+| Kolom          | Tipe      | Keterangan                 |
+|----------------|-----------|----------------------------|
+| `id`           | bigint    | Primary key                |
+| `perbaikan_id` | foreign   | ID dari tabel `perbaikans` |
+| `status`       | string    | Status saat itu            |
+| `keterangan`   | text      | Catatan teknisi / admin    |
+| `created_at`   | timestamp |                            |
