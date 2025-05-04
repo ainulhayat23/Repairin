@@ -139,3 +139,14 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 | `status`       | string    | Status saat itu            |
 | `keterangan`   | text      | Catatan teknisi / admin    |
 | `created_at`   | timestamp |                            |
+
+<h3>Jenis relasi dan tabel yang berelasi</h3>
+
+### 🔗 Relasi Antar Tabel – Sistem Repairin
+
+| Tabel Asal       | Tabel Tujuan      | Jenis Relasi   | Keterangan                                                    |
+|------------------|-------------------|----------------|----------------------------------------------------------------|
+| users            | perbaikans        | One to Many    | Satu pelanggan bisa membuat banyak laporan perbaikan          |
+| users (teknisi)  | perbaikans        | One to Many    | Satu teknisi bisa menangani banyak laporan perbaikan          |
+| perbaikans       | hasil_perbaikans  | One to One     | Satu laporan perbaikan memiliki satu hasil perbaikan           |
+| perbaikans       | layanan           | One to One     | Satu laporan hanya punya satu jenis layanan (antar/panggil)    |
