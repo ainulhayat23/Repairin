@@ -101,6 +101,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 <h3>Tabel-tabel database beserta field dan tipe datanya</h3>
 
+<h3>Tabel Users</h3>
 
 | Kolom        | Tipe      | Keterangan                      |
 |--------------|-----------|----------------------------------|
@@ -112,7 +113,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 | `created_at` | timestamp | Waktu dibuat                    |
 | `updated_at` | timestamp | Waktu diubah                    |
 
-
+<h3>Tabel Perbaikans</h3>
 | Kolom                | Tipe      | Keterangan                                      |
 |----------------------|-----------|--------------------------------------------------|
 | `id`                 | bigint    | Primary key                                     |
@@ -128,7 +129,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 | `created_at`         | timestamp |                                                 |
 | `updated_at`         | timestamp |                                                 |
 
-
+<h3>Tabel log_perbaikans (opsional)</h3>
 | Kolom          | Tipe      | Keterangan                 |
 |----------------|-----------|----------------------------|
 | `id`           | bigint    | Primary key                |
