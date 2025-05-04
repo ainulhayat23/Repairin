@@ -114,6 +114,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 | `updated_at` | timestamp | Waktu diubah                    |
 
 <h3>Tabel Perbaikans</h3>
+
 | Kolom                | Tipe      | Keterangan                                      |
 |----------------------|-----------|--------------------------------------------------|
 | `id`                 | bigint    | Primary key                                     |
@@ -130,6 +131,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 | `updated_at`         | timestamp |                                                 |
 
 <h3>Tabel log_perbaikans (opsional)</h3>
+
 | Kolom          | Tipe      | Keterangan                 |
 |----------------|-----------|----------------------------|
 | `id`           | bigint    | Primary key                |
