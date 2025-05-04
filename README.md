@@ -76,6 +76,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 <h3>Role dan Fitur</h3>
 
+## 🧑‍💼 Admin
 | Fitur                    | Deskripsi                                           |
 |--------------------------|-----------------------------------------------------|
 | Kelola data pengguna     | Tambah, edit, hapus akun teknisi & pelanggan       |
@@ -83,12 +84,14 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 | Kelola status perbaikan  | Mengubah status laporan (diajukan, diproses, dll)  |
 | CRUD teknisi             | Tambah, edit, hapus data teknisi                   |
 
+## 👨‍🔧 Teknisi
 | Fitur                          | Deskripsi                                        |
 |--------------------------------|--------------------------------------------------|
 | Melihat tugas perbaikan        | Melihat laporan yang ditugaskan kepadanya        |
 | Update status perbaikan        | Mengubah status jadi "diproses" atau "selesai"   |
 | Input hasil perbaikan          | Menambahkan deskripsi hasil & biaya perbaikan    |
 
+## 👤 Pelanggan (User)
 | Fitur                           | Deskripsi                                                    |
 |---------------------------------|----------------------------------------------------------------|
 | Registrasi dan login            | Membuat akun dan masuk ke sistem                              |
