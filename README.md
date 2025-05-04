@@ -75,3 +75,23 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 </p>
 
 <h3>Role dan Fitur</h3>
+
+| Fitur                    | Deskripsi                                           |
+|--------------------------|-----------------------------------------------------|
+| Kelola data pengguna     | Tambah, edit, hapus akun teknisi & pelanggan       |
+| Kelola laporan perbaikan | Melihat dan mengelola semua laporan yang masuk     |
+| Kelola status perbaikan  | Mengubah status laporan (diajukan, diproses, dll)  |
+| CRUD teknisi             | Tambah, edit, hapus data teknisi                   |
+
+| Fitur                          | Deskripsi                                        |
+|--------------------------------|--------------------------------------------------|
+| Melihat tugas perbaikan        | Melihat laporan yang ditugaskan kepadanya        |
+| Update status perbaikan        | Mengubah status jadi "diproses" atau "selesai"   |
+| Input hasil perbaikan          | Menambahkan deskripsi hasil & biaya perbaikan    |
+
+| Fitur                           | Deskripsi                                                    |
+|---------------------------------|----------------------------------------------------------------|
+| Registrasi dan login            | Membuat akun dan masuk ke sistem                              |
+| Melapor kerusakan (formulir)    | Mengisi laporan kerusakan barang elektronik                   |
+| Pilih antar barang / panggil teknisi | Menentukan metode layanan: antar ke tempat / teknisi ke rumah |
+| Lihat status perbaikan          | Melihat progres laporan: diajukan, diproses, selesai          |
