@@ -60,4 +60,18 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT). -->
 
-<h2>Repairin - Platform Perbaikan Barang Elektronik</h2>
+<h1 align="center">RepairIn</h1>
+<br>
+<h3 align="center">Platform Perbaikan Barang Elektronik</h3>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/3e809a21-1b25-4ef9-8e78-3bc97377b749" alt="Logo unsulbar" width="200"/>
+</p>
+
+<p align="center">
+  <strong>AINUL HAYAT. H</strong><br/><br/>
+  <strong>D0223317</strong><br/><br/>
+  <strong>Framework Web Based</strong><br/><br/>
+  <strong>2025</strong>
+</p>
+
+<h3>Role dan Fitur</h3>
