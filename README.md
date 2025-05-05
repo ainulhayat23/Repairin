@@ -115,40 +115,44 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 <h3>Tabel Perbaikans</h3>
 
-| Kolom                | Tipe      | Keterangan                                      |
-|----------------------|-----------|--------------------------------------------------|
-| `id`                 | bigint    | Primary key                                     |
-| `user_id`            | foreign   | ID pelanggan yang melapor                       |
-| `teknisi_id`         | foreign   | ID teknisi yang menangani (nullable di awal)    |
-| `nama_barang`        | string    | Nama barang elektronik                          |
-| `kerusakan`          | text      | Deskripsi kerusakan                             |
-| `tipe_layanan`       | enum      | `antar_lokasi` atau `panggil_teknisi`           |
-| `alamat_penjemputan` | string    | Alamat jika pilih "panggil teknisi" (nullable)  |
-| `biaya`              | integer   | Biaya perbaikan dari teknisi (nullable dulu)    |
-| `status`             | enum      | `diajukan`, `diproses`, `selesai`, `dibatalkan` |
-| `status_pembayaran`  | enum      | `belum_dibayar`, `sudah_dibayar`                |
-| `created_at`         | timestamp |                                                 |
-| `updated_at`         | timestamp |                                                 |
+| Kolom               | Tipe      | Keterangan                                      |
+| ------------------- | --------- | ----------------------------------------------- |
+| `id`                | bigint    | Primary key                                     |
+| `user_id`           | foreign   | Relasi ke `users` (pelanggan)                   |
+| `teknisi_id`        | foreign   | Relasi ke `users` (teknisi) nullable            |
+| `status`            | enum      | `diajukan`, `diproses`, `selesai`, `dibatalkan` |
+| `status_pembayaran` | enum      | `belum_dibayar`, `sudah_dibayar`                |
+| `created_at`        | timestamp | Timestamp pembuatan                             |
+| `updated_at`        | timestamp | Timestamp pembaruan                             |
 
-<h3>Tabel log_perbaikans (opsional)</h3>
+<h3>Tabel barang rusak</h3>
 
-| Kolom          | Tipe      | Keterangan                 |
-|----------------|-----------|----------------------------|
-| `id`           | bigint    | Primary key                |
-| `perbaikan_id` | foreign   | ID dari tabel `perbaikans` |
-| `status`       | string    | Status saat itu            |
-| `keterangan`   | text      | Catatan teknisi / admin    |
-| `created_at`   | timestamp |                            |
+| Kolom                | Tipe    | Keterangan                                     |
+| -------------------- | ------- | ---------------------------------------------- |
+| `id`                 | bigint  | Primary key                                    |
+| `perbaikan_id`       | foreign | Relasi ke `perbaikans`                         |
+| `nama_barang`        | string  | Nama barang elektronik                         |
+| `kerusakan`          | text    | Deskripsi kerusakan                            |
+| `tipe_layanan`       | enum    | `antar_lokasi`, `panggil_teknisi`              |
+| `alamat_penjemputan` | string  | Nullable jika tipe layanan adalah antar lokasi |
+
+<h3>Tabel hasil_perbaikans</h3>
+
+| Kolom          | Tipe     | Keterangan                            |
+| -------------- | -------- | ------------------------------------- |
+| `id`           | bigint   | Primary key                           |
+| `perbaikan_id` | foreign  | Relasi ke `perbaikans`                |
+| `biaya`        | integer  | Biaya perbaikan                       |
+| `catatan`      | text     | Penjelasan hasil perbaikan (opsional) |
+| `selesai_at`   | datetime | Waktu perbaikan diselesaikan          |
 
 <h3>Jenis relasi dan tabel yang berelasi</h3>
 
 ### 🔗 Relasi Antar Tabel – Sistem Repairin
 
-### 🔗 Relasi Antar Tabel – Sistem Repairin
-
-| Tabel Asal       | Tabel Tujuan      | Jenis Relasi   | Keterangan                                                    |
-|------------------|-------------------|----------------|----------------------------------------------------------------|
-| users            | perbaikans        | One to Many    | Satu pelanggan bisa membuat banyak laporan perbaikan          |
-| users (teknisi)  | perbaikans        | One to Many    | Satu teknisi bisa menangani banyak laporan perbaikan          |
-| perbaikans       | hasil_perbaikans  | One to One     | Satu laporan perbaikan memiliki satu hasil perbaikan           |
-| perbaikans       | layanan           | One to One     | Satu laporan hanya punya satu jenis layanan (antar/panggil)    |
+| Tabel Asal   | Tabel Tujuan       | Jenis Relasi | Keterangan                                     |
+| ------------ | ------------------ | ------------ | ---------------------------------------------- |
+| `users`      | `perbaikans`       | One to Many  | 1 pelanggan bisa membuat banyak laporan        |
+| `users`      | `perbaikans`       | One to Many  | 1 teknisi bisa menangani banyak perbaikan      |
+| `perbaikans` | `barang_rusak`     | One to One   | Setiap laporan memiliki satu data barang rusak |
+| `perbaikans` | `hasil_perbaikans` | One to One   | Setiap perbaikan punya satu hasil akhir        |
