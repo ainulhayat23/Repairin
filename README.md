@@ -144,11 +144,11 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ### 🔗 Relasi Antar Tabel – Sistem Repairin
 
-### 🔗 Relasi Antar Tabel
+### 🔗 Relasi Antar Tabel – Sistem Repairin
 
-| Tabel Asal      | Tabel Tujuan     | Jenis Relasi   | Keterangan                                                                 |
-|------------------|------------------|----------------|----------------------------------------------------------------------------|
-| users            | user_profiles    | One to One     | Setiap user punya satu profil tambahan (alamat, no hp, dll)               |
-| users            | perbaikans       | One to Many    | Pelanggan dapat mengirim banyak laporan perbaikan                         |
-| users            | perbaikans       | One to Many    | Teknisi bisa menangani banyak perbaikan (melalui teknisi_id)             |
-| users            | skills           | Many to Many   | Teknisi dapat memiliki banyak keahlian, dan satu keahlian dimiliki banyak teknisi |
+| Tabel Asal       | Tabel Tujuan      | Jenis Relasi   | Keterangan                                                    |
+|------------------|-------------------|----------------|----------------------------------------------------------------|
+| users            | perbaikans        | One to Many    | Satu pelanggan bisa membuat banyak laporan perbaikan          |
+| users (teknisi)  | perbaikans        | One to Many    | Satu teknisi bisa menangani banyak laporan perbaikan          |
+| perbaikans       | hasil_perbaikans  | One to One     | Satu laporan perbaikan memiliki satu hasil perbaikan           |
+| perbaikans       | layanan           | One to One     | Satu laporan hanya punya satu jenis layanan (antar/panggil)    |
