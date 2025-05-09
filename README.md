@@ -138,13 +138,13 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 <h3>Tabel hasil_perbaikans</h3>
 
-| Kolom          | Tipe     | Keterangan                            |
-| -------------- | -------- | ------------------------------------- |
-| `id`           | bigint   | Primary key                           |
-| `perbaikan_id` | foreign  | Relasi ke `perbaikans`                |
-| `biaya`        | integer  | Biaya perbaikan                       |
-| `catatan`      | text     | Penjelasan hasil perbaikan (opsional) |
-| `selesai_at`   | datetime | Waktu perbaikan diselesaikan          |
+| Kolom                | Tipe    | Keterangan                                     |
+|----------------------|---------|------------------------------------------------|
+| `id`                 | bigint  | Primary key                                    |
+| `perbaikan_id`       | foreign | Relasi ke `perbaikans`                         |
+| `nama_barang`        | string  | Nama barang elektronik                         |
+| `kerusakan`          | text    | Deskripsi kerusakan                            |
+| `alamat_penjemputan` | string  | Alamat tempat teknisi dipanggil (wajib diisi) |
 
 <h3>Jenis relasi dan tabel yang berelasi</h3>
 
