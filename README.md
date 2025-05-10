@@ -215,7 +215,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
   - Penjelasan: Satu kategori barang bisa dimiliki oleh banyak teknisi.
   - Kunci Relasi: kategoris.id → keahlian_teknisi.kategori_id
 
-6. users ↔ kategoris melalui keahlian_teknisi
+7. users ↔ kategoris melalui keahlian_teknisi
   - Jenis: Many-to-Many
   - Penjelasan: Banyak teknisi bisa punya banyak keahlian, dan satu kategori bisa dimiliki oleh banyak teknisi.
   - Kunci Relasi: users.id ↔ keahlian_teknisi.teknisi_id, kategoris.id ↔ keahlian_teknisi.kategori_id
