@@ -150,51 +150,37 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ### 🔗 Relasi Antar Tabel – Sistem Repairin
 
-users ↔ perbaikans
-Jenis: One-to-Many
+1. users ↔ perbaikans
+- Jenis: One-to-Many
+- Penjelasan: Satu pelanggan dapat membuat banyak laporan perbaikan.
+- Kunci Relasi: users.id → perbaikans.user_id
 
-Penjelasan: Satu pelanggan dapat membuat banyak laporan perbaikan.
+2. users ↔ perbaikans
+- Jenis: One-to-Many
+- Penjelasan: Satu teknisi dapat menangani banyak laporan perbaikan.
+- Kunci Relasi: users.id → perbaikans.teknisi_id
 
-Kunci Relasi: users.id → perbaikans.user_id
+3. perbaikans ↔ barang_rusak
+- Jenis: One-to-One
+- Penjelasan: Satu laporan perbaikan hanya memiliki satu data barang rusak.
+- Kunci Relasi: perbaikans.id → barang_rusak.perbaikan_id
 
-users ↔ perbaikans
-Jenis: One-to-Many
+4. perbaikans ↔ hasil_perbaikans
+- Jenis: One-to-One
+- Penjelasan: Satu laporan perbaikan hanya memiliki satu hasil perbaikan.
+- Kunci Relasi: perbaikans.id → hasil_perbaikans.perbaikan_id
 
-Penjelasan: Satu teknisi dapat menangani banyak laporan perbaikan.
+5. users ↔ keahlian_teknisi
+- Jenis: One-to-Many
+- Penjelasan: Satu teknisi bisa memiliki banyak keahlian.
+- Kunci Relasi: users.id → keahlian_teknisi.teknisi_id
 
-Kunci Relasi: users.id → perbaikans.teknisi_id
+6. kategoris ↔ keahlian_teknisi
+- Jenis: One-to-Many
+- Penjelasan: Satu kategori barang bisa dimiliki oleh banyak teknisi.
+- Kunci Relasi: kategoris.id → keahlian_teknisi.kategori_id
 
-perbaikans ↔ barang_rusak
-Jenis: One-to-One
-
-Penjelasan: Satu laporan perbaikan hanya memiliki satu data barang rusak.
-
-Kunci Relasi: perbaikans.id → barang_rusak.perbaikan_id
-
-perbaikans ↔ hasil_perbaikans
-Jenis: One-to-One
-
-Penjelasan: Satu laporan perbaikan hanya memiliki satu hasil perbaikan.
-
-Kunci Relasi: perbaikans.id → hasil_perbaikans.perbaikan_id
-
-users ↔ keahlian_teknisi
-Jenis: One-to-Many
-
-Penjelasan: Satu teknisi bisa memiliki banyak keahlian.
-
-Kunci Relasi: users.id → keahlian_teknisi.teknisi_id
-
-kategoris ↔ keahlian_teknisi
-Jenis: One-to-Many
-
-Penjelasan: Satu kategori barang bisa dimiliki oleh banyak teknisi.
-
-Kunci Relasi: kategoris.id → keahlian_teknisi.kategori_id
-
-users ↔ kategoris melalui keahlian_teknisi
-Jenis: Many-to-Many
-
-Penjelasan: Banyak teknisi bisa punya banyak keahlian, dan satu kategori bisa dimiliki oleh banyak teknisi.
-
-Kunci Relasi: users.id ↔ keahlian_teknisi.teknisi_id, kategoris.id ↔ keahlian_teknisi.kategori_id
+6. users ↔ kategoris melalui keahlian_teknisi
+- Jenis: Many-to-Many
+- Penjelasan: Banyak teknisi bisa punya banyak keahlian, dan satu kategori bisa dimiliki oleh banyak teknisi.
+- Kunci Relasi: users.id ↔ keahlian_teknisi.teknisi_id, kategoris.id ↔ keahlian_teknisi.kategori_id
