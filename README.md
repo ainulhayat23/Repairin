@@ -101,7 +101,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 <h3>Tabel-tabel database beserta field dan tipe datanya</h3>
 
-<h3>Tabel Users</h3>
+## 📄 Tabel `users`
 
 | Kolom        | Tipe      | Keterangan                      |
 |--------------|-----------|----------------------------------|
@@ -113,10 +113,12 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 | `created_at` | timestamp | Waktu dibuat                    |
 | `updated_at` | timestamp | Waktu diubah                    |
 
-<h3>Tabel Perbaikans</h3>
+---
+
+## 📄 Tabel `perbaikans`
 
 | Kolom               | Tipe      | Keterangan                                      |
-| ------------------- | --------- | ----------------------------------------------- |
+|---------------------|-----------|-------------------------------------------------|
 | `id`                | bigint    | Primary key                                     |
 | `user_id`           | foreign   | Relasi ke `users` (pelanggan)                   |
 | `teknisi_id`        | foreign   | Relasi ke `users` (teknisi) nullable            |
@@ -125,7 +127,9 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 | `created_at`        | timestamp | Timestamp pembuatan                             |
 | `updated_at`        | timestamp | Timestamp pembaruan                             |
 
-<h3>Tabel barang rusak</h3>
+---
+
+## 📄 Tabel `barang_rusak`
 
 | Kolom                | Tipe    | Keterangan                                     |
 |----------------------|---------|------------------------------------------------|
@@ -133,54 +137,78 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 | `perbaikan_id`       | foreign | Relasi ke `perbaikans`                         |
 | `nama_barang`        | string  | Nama barang elektronik                         |
 | `kerusakan`          | text    | Deskripsi kerusakan                            |
-| `alamat_penjemputan` | string  | Alamat tempat teknisi dipanggil (wajib diisi) |
+| `tipe_layanan`       | enum    | `panggil_teknisi`                              |
+| `alamat_penjemputan` | string  | Alamat penjemputan teknisi                     |
 
+---
 
-<h3>Tabel hasil_perbaikans</h3>
+## 📄 Tabel `hasil_perbaikans`
 
 | Kolom          | Tipe     | Keterangan                            |
-| -------------- | -------- | ------------------------------------- |
-| `id`           | bigint   | Primary key                           |
-| `perbaikan_id` | foreign  | Relasi ke `perbaikans`                |
-| `biaya`        | integer  | Biaya perbaikan                       |
-| `catatan`      | text     | Penjelasan hasil perbaikan (opsional) |
-| `selesai_at`   | datetime | Waktu perbaikan diselesaikan          |
+|----------------|----------|----------------------------------------|
+| `id`           | bigint   | Primary key                            |
+| `perbaikan_id` | foreign  | Relasi ke `perbaikans`                 |
+| `biaya`        | integer  | Biaya perbaikan                        |
+| `catatan`      | text     | Penjelasan hasil perbaikan (opsional)  |
+| `selesai_at`   | datetime | Waktu perbaikan diselesaikan           |
+
+---
+
+## 📄 Tabel `kategoris`
+
+| Kolom        | Tipe      | Keterangan                       |
+|--------------|-----------|----------------------------------|
+| `id`         | bigint    | Primary key                      |
+| `nama`       | string    | Nama kategori barang elektronik  |
+| `created_at` | timestamp | Timestamp dibuat                 |
+| `updated_at` | timestamp | Timestamp diubah                 |
+
+---
+
+## 📄 Tabel `keahlian_teknisi`
+
+| Kolom         | Tipe    | Keterangan                                 |
+|---------------|---------|---------------------------------------------|
+| `id`          | bigint  | Primary key                                 |
+| `teknisi_id`  | foreign | Relasi ke `users` (khusus teknisi)          |
+| `kategori_id` | foreign | Relasi ke `kategoris`                       |
+
 
 <h3>Jenis relasi dan tabel yang berelasi</h3>
 
 ### 🔗 Relasi Antar Tabel – Sistem Repairin
 
 1. users ↔ perbaikans
-- Jenis: One-to-Many
-- Penjelasan: Satu pelanggan dapat membuat banyak laporan perbaikan.
-- Kunci Relasi: users.id → perbaikans.user_id
+  - Jenis: One-to-Many
+  - Penjelasan: Satu pelanggan dapat membuat banyak laporan perbaikan.
+  - Kunci Relasi: users.id → perbaikans.user_id
 
 2. users ↔ perbaikans
-- Jenis: One-to-Many
-- Penjelasan: Satu teknisi dapat menangani banyak laporan perbaikan.
-- Kunci Relasi: users.id → perbaikans.teknisi_id
+  - Jenis: One-to-Many
+  - Penjelasan: Satu teknisi dapat menangani banyak laporan perbaikan.
+  - Kunci Relasi: users.id → perbaikans.teknisi_id
 
 3. perbaikans ↔ barang_rusak
-- Jenis: One-to-One
-- Penjelasan: Satu laporan perbaikan hanya memiliki satu data barang rusak.
-- Kunci Relasi: perbaikans.id → barang_rusak.perbaikan_id
+  - Jenis: One-to-One
+  - Penjelasan: Satu laporan perbaikan hanya memiliki satu data barang rusak.
+  - Kunci Relasi: perbaikans.id → barang_rusak.perbaikan_id
 
 4. perbaikans ↔ hasil_perbaikans
-- Jenis: One-to-One
-- Penjelasan: Satu laporan perbaikan hanya memiliki satu hasil perbaikan.
-- Kunci Relasi: perbaikans.id → hasil_perbaikans.perbaikan_id
+  - Jenis: One-to-One
+  - Penjelasan: Satu laporan perbaikan hanya memiliki satu hasil perbaikan.
+  - Kunci Relasi: perbaikans.id → hasil_perbaikans.perbaikan_id
 
 5. users ↔ keahlian_teknisi
-- Jenis: One-to-Many
-- Penjelasan: Satu teknisi bisa memiliki banyak keahlian.
-- Kunci Relasi: users.id → keahlian_teknisi.teknisi_id
+  - Jenis: One-to-Many
+  - Penjelasan: Satu teknisi bisa memiliki banyak keahlian.
+  - Kunci Relasi: users.id → keahlian_teknisi.teknisi_id
 
 6. kategoris ↔ keahlian_teknisi
-- Jenis: One-to-Many
-- Penjelasan: Satu kategori barang bisa dimiliki oleh banyak teknisi.
-- Kunci Relasi: kategoris.id → keahlian_teknisi.kategori_id
+  - Jenis: One-to-Many
+  - Penjelasan: Satu kategori barang bisa dimiliki oleh banyak teknisi.
+  - Kunci Relasi: kategoris.id → keahlian_teknisi.kategori_id
 
 6. users ↔ kategoris melalui keahlian_teknisi
-- Jenis: Many-to-Many
-- Penjelasan: Banyak teknisi bisa punya banyak keahlian, dan satu kategori bisa dimiliki oleh banyak teknisi.
-- Kunci Relasi: users.id ↔ keahlian_teknisi.teknisi_id, kategoris.id ↔ keahlian_teknisi.kategori_id
+  - Jenis: Many-to-Many
+  - Penjelasan: Banyak teknisi bisa punya banyak keahlian, dan satu kategori bisa dimiliki oleh banyak teknisi.
+  - Kunci Relasi: users.id ↔ keahlian_teknisi.teknisi_id, kategoris.id ↔ keahlian_teknisi.kategori_id
