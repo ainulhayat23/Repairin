@@ -77,27 +77,34 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 <h3>Role dan Fitur</h3>
 
 ## 🧑‍💼 Admin
-| Fitur                    | Deskripsi                                           |
-|--------------------------|-----------------------------------------------------|
-| Kelola data pengguna     | Tambah, edit, hapus akun teknisi & pelanggan       |
-| Kelola laporan perbaikan | Melihat dan mengelola semua laporan yang masuk     |
-| Kelola status perbaikan  | Mengubah status laporan (diajukan, diproses, dll)  |
-| CRUD teknisi             | Tambah, edit, hapus data teknisi                   |
+
+| Fitur                   | Deskripsi                                           | Kesesuaian Tabel                  |
+|-------------------------|-----------------------------------------------------|-----------------------------------|
+| Kelola data pengguna    | Tambah, edit, hapus akun teknisi & pelanggan        | `users`                           |
+| Kelola laporan perbaikan| Melihat dan mengelola semua laporan yang masuk      | `perbaikans`                      |
+| Kelola status perbaikan | Mengubah status laporan (diajukan, diproses, dll)   | `perbaikans.status`              |
+| CRUD teknisi            | Tambah, edit, hapus data teknisi                    | `users` dengan role `teknisi`     |
+
+---
 
 ## 👨‍🔧 Teknisi
-| Fitur                          | Deskripsi                                        |
-|--------------------------------|--------------------------------------------------|
-| Melihat tugas perbaikan        | Melihat laporan yang ditugaskan kepadanya        |
-| Update status perbaikan        | Mengubah status jadi "diproses" atau "selesai"   |
-| Input hasil perbaikan          | Menambahkan deskripsi hasil & biaya perbaikan    |
+
+| Fitur                    | Deskripsi                                            | Kesesuaian Tabel              |
+|--------------------------|------------------------------------------------------|-------------------------------|
+| Melihat tugas perbaikan  | Melihat laporan yang ditugaskan kepadanya           | `perbaikans.teknisi_id`       |
+| Update status perbaikan  | Mengubah status jadi "diproses" atau "selesai"       | `perbaikans.status`          |
+| Input hasil perbaikan    | Menambahkan deskripsi hasil & biaya perbaikan        | `hasil_perbaikans`            |
+
+---
 
 ## 👤 Pelanggan (User)
-| Fitur                           | Deskripsi                                                    |
-|---------------------------------|----------------------------------------------------------------|
-| Registrasi dan login            | Membuat akun dan masuk ke sistem                              |
-| Melapor kerusakan (formulir)    | Mengisi laporan kerusakan barang elektronik                   |
-| Pilih antar barang / panggil teknisi | Menentukan metode layanan: antar ke tempat / teknisi ke rumah |
-| Lihat status perbaikan          | Melihat progres laporan: diajukan, diproses, selesai          |
+
+| Fitur                           | Deskripsi                                                         | Kesesuaian Tabel                   |
+|---------------------------------|-------------------------------------------------------------------|------------------------------------|
+| Registrasi dan login            | Membuat akun dan masuk ke sistem                                 | `users` dengan role `pelanggan`    |
+| Melapor kerusakan (formulir)    | Mengisi laporan kerusakan barang elektronik                      | `perbaikans`, `barang_rusak`       |
+| Panggil teknisi                 | Menentukan metode layanan teknisi ke rumah                       | `barang_rusak.tipe_layanan`        |
+| Lihat status perbaikan          | Melihat progres laporan: diajukan, diproses, selesai             | `perbaikans.status`               |
 
 <h3>Tabel-tabel database beserta field dan tipe datanya</h3>
 
