@@ -150,9 +150,51 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ### 🔗 Relasi Antar Tabel – Sistem Repairin
 
-| Tabel Asal   | Tabel Tujuan       | Jenis Relasi | Keterangan                                     |
-| ------------ | ------------------ | ------------ | ---------------------------------------------- |
-| `users`      | `perbaikans`       | One to Many  | 1 pelanggan bisa membuat banyak laporan        |
-| `users`      | `perbaikans`       | One to Many  | 1 teknisi bisa menangani banyak perbaikan      |
-| `perbaikans` | `barang_rusak`     | One to One   | Setiap laporan memiliki satu data barang rusak |
-| `perbaikans` | `hasil_perbaikans` | One to One   | Setiap perbaikan punya satu hasil akhir        |
+users ↔ perbaikans
+Jenis: One-to-Many
+
+Penjelasan: Satu pelanggan dapat membuat banyak laporan perbaikan.
+
+Kunci Relasi: users.id → perbaikans.user_id
+
+users ↔ perbaikans
+Jenis: One-to-Many
+
+Penjelasan: Satu teknisi dapat menangani banyak laporan perbaikan.
+
+Kunci Relasi: users.id → perbaikans.teknisi_id
+
+perbaikans ↔ barang_rusak
+Jenis: One-to-One
+
+Penjelasan: Satu laporan perbaikan hanya memiliki satu data barang rusak.
+
+Kunci Relasi: perbaikans.id → barang_rusak.perbaikan_id
+
+perbaikans ↔ hasil_perbaikans
+Jenis: One-to-One
+
+Penjelasan: Satu laporan perbaikan hanya memiliki satu hasil perbaikan.
+
+Kunci Relasi: perbaikans.id → hasil_perbaikans.perbaikan_id
+
+users ↔ keahlian_teknisi
+Jenis: One-to-Many
+
+Penjelasan: Satu teknisi bisa memiliki banyak keahlian.
+
+Kunci Relasi: users.id → keahlian_teknisi.teknisi_id
+
+kategoris ↔ keahlian_teknisi
+Jenis: One-to-Many
+
+Penjelasan: Satu kategori barang bisa dimiliki oleh banyak teknisi.
+
+Kunci Relasi: kategoris.id → keahlian_teknisi.kategori_id
+
+users ↔ kategoris melalui keahlian_teknisi
+Jenis: Many-to-Many
+
+Penjelasan: Banyak teknisi bisa punya banyak keahlian, dan satu kategori bisa dimiliki oleh banyak teknisi.
+
+Kunci Relasi: users.id ↔ keahlian_teknisi.teknisi_id, kategoris.id ↔ keahlian_teknisi.kategori_id
