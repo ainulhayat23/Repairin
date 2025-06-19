@@ -174,3 +174,14 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 | paid_at             | TIMESTAMP NULL                 | Waktu saat pembayaran diselesaikan                             |
 | created_at          | TIMESTAMP                      | Waktu data dibuat                                              |
 | updated_at          | TIMESTAMP                      | Waktu terakhir data diperbarui                                 |
+
+
+### Jenis Relasi dan Tabel yang Berelasi
+
+| **Tabel Asal** | **Kolom FK**    | **Tabel Tujuan** | **Jenis Relasi** | **Keterangan**                                                                 |
+|----------------|------------------|------------------|------------------|---------------------------------------------------------------------------------|
+| pemesanan      | user_id          | users            | Many-to-One      | Banyak pemesanan dimiliki oleh satu customer (user)                            |
+| pemesanan      | cabang_id        | cabang           | Many-to-One      | Banyak pemesanan berada di satu cabang                                         |
+| pemesanan      | layanan_id       | layanan          | Many-to-One      | Banyak pemesanan mengacu ke satu layanan perbaikan                             |
+| pemesanan      | teknisi_id       | users            | Many-to-One      | Banyak pemesanan dilayani oleh satu teknisi (user)                             |
+| transaksi      | pemesanan_id     | pemesanan        | One-to-One       | Satu transaksi hanya untuk satu pemesanan layanan                              |
