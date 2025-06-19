@@ -104,7 +104,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 | Melihat & Memilih Layanan        | Menampilkan layanan perbaikan seperti servis HP, laptop, TV, dan lainnya.                       |
 | Melihat & Memilih Teknisi        | Memilih teknisi yang tersedia dari cabang yang telah dipilih.                                   |
 | Melihat & Memilih Jadwal         | Menentukan tanggal dan waktu layanan perbaikan.                                                 |
-| Memilih Metode Pembayaran        | Memilih metode pembayaran seperti tunai atau metode lain yang tersedia.                         |
+| Memilih Metode Pembayaran        | Memilih metode pembayaran  tunai                |
 | Memilih Jenis Layanan (Tempat/Home) | Menentukan apakah akan datang ke cabang atau meminta teknisi datang ke lokasi (home service). |
 | Melihat Riwayat Booking          | Melihat daftar layanan perbaikan sebelumnya dan statusnya.                                      |
 
