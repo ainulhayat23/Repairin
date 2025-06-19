@@ -110,9 +110,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ### Tabel-tabel database beserta field dan tipe datanya
 
-### 1. users
-
-### Tabel: users
+### 1. Tabel: users
 
 | **Field**     | **Tipe Data**                 | **Keterangan**                                                |
 |---------------|-------------------------------|----------------------------------------------------------------|
@@ -124,3 +122,55 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 | created_at    | TIMESTAMP                     | Waktu data dibuat                                              |
 | updated_at    | TIMESTAMP                     | Waktu terakhir data diperbarui                                 |
 
+### 2. Tabel: cabang
+
+| **Field**     | **Tipe Data**        | **Keterangan**                          |
+|---------------|----------------------|------------------------------------------|
+| id            | BIGINT UNSIGNED AI   | Primary key                              |
+| nama          | VARCHAR(100)         | Nama cabang Repairin                     |
+| alamat        | TEXT                 | Alamat lengkap cabang                    |
+| kota_kab      | VARCHAR(100)         | Nama kota atau kabupaten lokasi cabang   |
+| created_at    | TIMESTAMP            | Waktu data dibuat                        |
+| updated_at    | TIMESTAMP            | Waktu terakhir data diperbarui           |
+
+
+### 3. Tabel: layanan
+
+| **Field**     | **Tipe Data**        | **Keterangan**                                      |
+|---------------|----------------------|------------------------------------------------------|
+| id            | BIGINT UNSIGNED AI   | Primary key                                          |
+| nama          | VARCHAR(100)         | Nama layanan perbaikan                              |
+| deskripsi     | TEXT NULL            | Deskripsi layanan perbaikan (opsional)              |
+| harga         | DECIMAL(10,2)        | Biaya layanan perbaikan                             |
+| durasi        | INT                  | Perkiraan durasi layanan (dalam hari)              |
+| created_at    | TIMESTAMP            | Waktu data dibuat                                   |
+| updated_at    | TIMESTAMP            | Waktu terakhir data diperbarui                      |
+
+
+### 4. Tabel: pemesanan
+
+| **Field**         | **Tipe Data**              | **Keterangan**                                                                 |
+|-------------------|----------------------------|---------------------------------------------------------------------------------|
+| id                | BIGINT UNSIGNED AI         | Primary key                                                                     |
+| user_id           | BIGINT UNSIGNED            | Foreign key → users.id (customer)                                               |
+| cabang_id         | BIGINT UNSIGNED            | Foreign key → cabang.id                                                         |
+| layanan_id        | BIGINT UNSIGNED            | Foreign key → layanan.id                                                        |
+| teknisi_id        | BIGINT UNSIGNED            | Foreign key → users.id (role = teknisi)                                         |
+| penjadwalan       | DATETIME                   | Tanggal dan waktu layanan dijadwalkan                                           |
+| metode_layanan    | ENUM('cabang', 'home')     | Metode layanan: di cabang Repairin atau home service                            |
+| lokasi            | TEXT NULL                  | Alamat home service (jika metode_layanan = 'home')                              |
+| jumlah_bayar      | DECIMAL(10,2)              | Total biaya untuk satu layanan                                                  |
+| status            | ENUM('menunggu','diterima','selesai','dibatalkan') | Status dari permintaan layanan                         |
+| created_at        | TIMESTAMP                  | Waktu data dibuat                                                               |
+| updated_at        | TIMESTAMP                  | Waktu terakhir data diperbarui                                                  |
+
+### 5. Tabel: transaksi
+
+| **Field**           | **Tipe Data**                  | **Keterangan**                                                |
+|---------------------|--------------------------------|----------------------------------------------------------------|
+| id                  | BIGINT UNSIGNED AI             | Primary key                                                    |
+| pemesanan_id        | BIGINT UNSIGNED                | Foreign key → pemesanan.id                                     |
+| status_pembayaran   | ENUM('pending','paid','failed')| Status pembayaran: menunggu, berhasil, atau gagal              |
+| paid_at             | TIMESTAMP NULL                 | Waktu saat pembayaran diselesaikan                             |
+| created_at          | TIMESTAMP                      | Waktu data dibuat                                              |
+| updated_at          | TIMESTAMP                      | Waktu terakhir data diperbarui                                 |
