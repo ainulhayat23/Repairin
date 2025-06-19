@@ -29,10 +29,10 @@
         <label for="harga" class="form-label">Harga</label>
         <input type="number" name="harga" class="form-control" required>
     </div> 
-    {{-- <div class="mb-3">
+    <div class="mb-3">
         <label for="durasi" class="form-label">Durasi (menit)</label>
         <input type="text" name="durasi" class="form-control" required>
-    </div> --}}
+    </div>
 
     <button type="submit" class="btn btn-success">Simpan</button>
 </form>

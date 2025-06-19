@@ -77,6 +77,9 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 <h1>Role dan Fitur</h1>
 
+
+### fitur Admin
+
 | **Fitur**              | **Deskripsi**                                                                 |
 |------------------------|--------------------------------------------------------------------------------|
 | Kelola Data Pengguna   | Menambah, mengubah, dan menghapus user dengan peran (admin, teknisi, customer). |
@@ -84,3 +87,24 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 | Kelola Data Layanan    | Menambah, mengedit, dan menghapus layanan perbaikan seperti servis HP, laptop, dan lainnya. |
 | Kelola Booking         | Melihat semua permintaan layanan yang masuk dari customer beserta statusnya.    |
 | Kelola Transaksi       | Melihat dan mengelola data pembayaran dari customer untuk layanan perbaikan.    |
+
+### Fitur Teknisi
+
+| **Fitur**                  | **Deskripsi**                                                                 |
+|----------------------------|-------------------------------------------------------------------------------|
+| Melihat Daftar Booking     | Menampilkan daftar permintaan perbaikan yang dialokasikan ke teknisi tersebut. |
+| Konfirmasi Booking         | Menerima atau menolak permintaan layanan perbaikan dari customer.             |
+| Mengatur Status Booking    | Menandai status proses perbaikan: menunggu, diproses, selesai, dibatalkan, dll. |
+
+### Fitur Customer
+
+| **Fitur**                         | **Deskripsi**                                                                                   |
+|----------------------------------|--------------------------------------------------------------------------------------------------|
+| Melihat & Memilih Cabang         | Menampilkan daftar cabang Repairin yang tersedia untuk dipilih.                                 |
+| Melihat & Memilih Layanan        | Menampilkan layanan perbaikan seperti servis HP, laptop, TV, dan lainnya.                       |
+| Melihat & Memilih Teknisi        | Memilih teknisi yang tersedia dari cabang yang telah dipilih.                                   |
+| Melihat & Memilih Jadwal         | Menentukan tanggal dan waktu layanan perbaikan.                                                 |
+| Memilih Metode Pembayaran        | Memilih metode pembayaran seperti tunai atau metode lain yang tersedia.                         |
+| Memilih Jenis Layanan (Tempat/Home) | Menentukan apakah akan datang ke cabang atau meminta teknisi datang ke lokasi (home service). |
+| Melihat Riwayat Booking          | Melihat daftar layanan perbaikan sebelumnya dan statusnya.                                      |
+
