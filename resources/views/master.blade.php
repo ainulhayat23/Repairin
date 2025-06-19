@@ -15,7 +15,7 @@
                 Pesan layanan sekarang — biar kami yang perbaiki elektronikmu dengan mudah dan cepat.
             </p>
             <div class="d-flex">
-                <a href="{{ Route('login') }}" class="btn-get-started scrollto">Get Started</a>
+                <a href="{{ Route('login') }}" class="btn-get-started scrollto">Ayo Mulai</a>
             </div>
         </div>
 

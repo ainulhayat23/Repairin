@@ -50,7 +50,7 @@
                     <li><a href="">Kelola User</a></li>
                     <li><a href="">Kelola Cabang</a></li>
                     <li><a href="">Kelola Layanan</a></li>
-                    <li><a href="">Kelola Booking</a></li>
+                    <li><a href="">Kelola Laporan</a></li>
                     @if (Route::has('login'))
                     @auth
                     <li><a href="{{ route('profile.edit') }}">{{ Auth::user()->name }}</a></li>
@@ -61,7 +61,7 @@
                     @else
                     <li><a href="{{ route('login') }}" class="btn-aunt">Login</a></li>
                     @if (Route::has('register'))
-                    <li><a href="{{ route('register') }}" class="btn-aunt">Daftar</a></li>
+                    <li><a href="{{ route('register') }}" class="btn-aunt">Register</a></li>
                     @endif
                     @endauth
                     @endif
