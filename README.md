@@ -70,6 +70,14 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 <p align="center">
   <strong>AINUL HAYAT. H</strong><br/><br/>
   <strong>D0223317</strong><br/><br/>
-  <strong>Framework Web Base</strong><br/><br/>
+  <strong>Framework Web Based</strong><br/><br/>
   <strong>2025</strong>
 </p>
+
+| **Fitur**              | **Deskripsi**                                                                 |
+|------------------------|--------------------------------------------------------------------------------|
+| Kelola Data Pengguna   | Menambah, mengubah, dan menghapus user dengan peran (admin, teknisi, customer). |
+| Kelola Data Cabang     | Mengatur informasi cabang Repairin seperti alamat, jam operasional, dan kontak. |
+| Kelola Data Layanan    | Menambah, mengedit, dan menghapus layanan perbaikan seperti servis HP, laptop, dan lainnya. |
+| Kelola Booking         | Melihat semua permintaan layanan yang masuk dari customer beserta statusnya.    |
+| Kelola Transaksi       | Melihat dan mengelola data pembayaran dari customer untuk layanan perbaikan.    |
