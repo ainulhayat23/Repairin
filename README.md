@@ -108,3 +108,19 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 | Memilih Jenis Layanan (Tempat/Home) | Menentukan apakah akan datang ke cabang atau meminta teknisi datang ke lokasi (home service). |
 | Melihat Riwayat Booking          | Melihat daftar layanan perbaikan sebelumnya dan statusnya.                                      |
 
+### Tabel-tabel database beserta field dan tipe datanya
+
+### 1. users
+
+### Tabel: users
+
+| **Field**     | **Tipe Data**                 | **Keterangan**                                                |
+|---------------|-------------------------------|----------------------------------------------------------------|
+| id            | BIGINT UNSIGNED AI            | Primary key                                                    |
+| name          | VARCHAR(100)                  | Nama lengkap user                                              |
+| email         | VARCHAR(150) UNIQUE           | Email user (unik)                                              |
+| password      | VARCHAR(255)                  | Password (dihash)                                              |
+| role          | ENUM('admin','teknisi','customer') | Jenis peran pengguna dalam sistem Repairin                     |
+| created_at    | TIMESTAMP                     | Waktu data dibuat                                              |
+| updated_at    | TIMESTAMP                     | Waktu terakhir data diperbarui                                 |
+
