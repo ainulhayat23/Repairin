@@ -59,9 +59,9 @@
                         <button type="submit" class="btn-aunt">Logout</button>
                     </form>
                     @else
-                    <li><a href="{{ route('login') }}" class="btn-aunt">Login</a></li>
+                    <li><a href="{{ route('login') }}" class="btn-primary">Login</a></li>
                     @if (Route::has('register'))
-                    <li><a href="{{ route('register') }}" class="btn-aunt">Register</a></li>
+                    <li><a href="{{ route('register') }}" class="btn-primary">Register</a></li>
                     @endif
                     @endauth
                     @endif

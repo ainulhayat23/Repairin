@@ -6,7 +6,7 @@
                 <th scope="col">Waktu Pemesanan</th>
                 <th scope="col">Cabang</th>
                 <th scope="col">Layanan</th>
-                <th scope="col">Barber</th>
+                <th scope="col">Teknisi</th>
                 <th scope="col">Metode Layanan</th>
                 <th scope="col">Lokasi</th>
                 <th scope="col">Status</th>
